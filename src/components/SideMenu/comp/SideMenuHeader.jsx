@@ -1,4 +1,4 @@
-import { Image, Flex, IconButton } from '@chakra-ui/react';
+import { Image, Flex, IconButton, ScaleFade } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import logo from '../../../icons/logo-inverse.png';
 import logoFull from '../../../icons/logo-inverse-full.png';
@@ -7,26 +7,31 @@ const SideMenuHeader = ({ isOpen = false, onOpenButtonClick }) => {
   return (
     <Flex
       as="header"
+      pl={isOpen ? 4 : 0}
+      mb={isOpen ? 20 : 10}
       gap={isOpen ? 5 : 8}
       alignItems="center"
-      justifyContent="center"
+      justifyContent={isOpen ? 'flex-start' : 'center'}
       flexDir={isOpen ? 'row' : 'column'}
     >
       <IconButton
         aria-label="Open menu"
-        bg="rgba(152, 165, 183, 0.3)"
-        borderRadius="50%"
+        colorScheme="greyButton"
+        isRound
         w="34px"
         icon={<HamburgerIcon color="grey.60" />}
         onClick={onOpenButtonClick}
       />
 
-      <Image
-        alt="logo"
-        src={isOpen ? logoFull : logo}
-        w={isOpen ? '140px' : '32px'}
-        h={isOpen ? '27px' : '32px'}
-      />
+      {isOpen ? (
+        <ScaleFade initialScale={0.6} in={isOpen}>
+          <Image alt="logo" src={logoFull} w={'140px'} h={'27px'} />
+        </ScaleFade>
+      ) : (
+        <ScaleFade initialScale={0.6} in={!isOpen}>
+          <Image alt="logo" src={logo} w={'32px'} h={'32px'} />
+        </ScaleFade>
+      )}
     </Flex>
   );
 };

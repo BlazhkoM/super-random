@@ -19,6 +19,9 @@ const theme = extendTheme({
       yellow: '#FFD54F',
       red: '#EA6363',
     },
+    greyButton: {
+      500: 'rgba(152, 165, 183, 0.3)',
+    },
     grey: {
       10: '#F8F9FB',
       20: '#DFE3E9',

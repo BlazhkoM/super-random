@@ -1,18 +1,15 @@
 import { useRef } from 'react';
 import {
-  Button,
   Drawer,
-  useDisclosure,
   DrawerOverlay,
   DrawerContent,
   DrawerHeader,
   DrawerBody,
-  Input,
   DrawerFooter,
   DrawerCloseButton,
 } from '@chakra-ui/react';
 import SideMenuLinkList from '../SideMenu/comp/SideMenuLinkList';
-import MobileMenuFooter from '../SideMenu/comp/MobileMenuFooter';
+import MobileMenuFooter from '../SideMenu/comp/SideMenuFooter';
 
 function MobileSideMenu({ isOpen, onOpen, onClose }) {
   const btnRef = useRef();

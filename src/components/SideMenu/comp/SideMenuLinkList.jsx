@@ -2,12 +2,18 @@ import { Box, VStack } from '@chakra-ui/react';
 import MenuItem from './MenuItem';
 import menuItemsData from '../../../shared/menuItemsData';
 
-const SideMenuLinkList = () => {
+const SideMenuLinkList = ({ small = false }) => {
   return (
-    <Box pt={10} color="grey.60">
+    <Box pt={[10, null, 0]} color="grey.60">
       <VStack spacing={2}>
         {menuItemsData.map(({ id, icon, path, text }) => (
-          <MenuItem key={id} text={text} path={path} icon={icon} />
+          <MenuItem
+            key={id}
+            isSmall={small}
+            text={text}
+            path={path}
+            icon={icon}
+          />
         ))}
       </VStack>
     </Box>

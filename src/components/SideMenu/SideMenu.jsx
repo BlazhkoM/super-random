@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import { Box } from '@chakra-ui/react';
+import { Box, useDisclosure } from '@chakra-ui/react';
 
 import SideMenuHeader from './comp/SideMenuHeader';
+import SideMenuLinkList from './comp/SideMenuLinkList';
+import SideMenuFooter from './comp/SideMenuFooter';
 
 const SideMenu = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, onToggle } = useDisclosure();
 
   return (
     <Box
@@ -16,11 +17,18 @@ const SideMenu = () => {
       zIndex={10}
       bg="primary.navy"
       position="absolute"
+      display="flex"
+      flexDirection="column"
+      transition="all 0.2s"
+      justifyContent={'space-between'}
     >
-      <SideMenuHeader
-        isOpen={isOpen}
-        onOpenButtonClick={() => setIsOpen(prev => !prev)}
-      />
+      <Box>
+        <SideMenuHeader isOpen={isOpen} onOpenButtonClick={onToggle} />
+
+        <SideMenuLinkList small={!isOpen} />
+      </Box>
+
+      <SideMenuFooter isOpen={isOpen} />
     </Box>
   );
 };
