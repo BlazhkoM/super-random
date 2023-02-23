@@ -1,25 +1,24 @@
-import { useEffect, useState } from 'react';
-import { Box, Show, Hide } from '@chakra-ui/react';
+import { useEffect } from 'react';
+import { Box, Hide, useMediaQuery, useDisclosure } from '@chakra-ui/react';
 
 import SideMenuHeader from './comp/SideMenuHeader';
 import SideMenuLinkList from './comp/SideMenuLinkList';
 import SideMenuFooter from './comp/SideMenuFooter';
-import useWindowWidth from '../../hooks/useWindowWidth';
 
 const SideMenu = () => {
-  const [isOpen, onToggle] = useState();
-  const width = useWindowWidth();
+  const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
+  const [isLargerThan978] = useMediaQuery('(min-width: 978px)');
+  const [isLargerThan1278] = useMediaQuery('(min-width: 1278px)');
 
   useEffect(() => {
-    if (!width) return;
-    if (width > 978) onToggle(false);
-    if (width > 1278) onToggle(true);
-  }, [width]);
+    if (isLargerThan978) onClose();
+    if (isLargerThan1278) onOpen();
+  }, [isLargerThan978, isLargerThan1278, onOpen, onClose]);
 
   return (
     <Box
       py={isOpen ? 5 : 6}
-      w={isOpen ? '244px' : '94px'}
+      w={[isOpen ? '244px' : '94px', null, null, null, '264px']}
       h="100vh"
       top={0}
       left={0}
@@ -32,10 +31,7 @@ const SideMenu = () => {
       justifyContent={'space-between'}
     >
       <Box>
-        <SideMenuHeader
-          isOpen={isOpen}
-          onOpenButtonClick={() => onToggle(prev => !prev)}
-        />
+        <SideMenuHeader isOpen={isOpen} onOpenButtonClick={onToggle} />
 
         <SideMenuLinkList small={!isOpen} />
       </Box>
