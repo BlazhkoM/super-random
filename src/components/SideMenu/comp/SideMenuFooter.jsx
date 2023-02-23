@@ -1,7 +1,7 @@
 import { Box, Flex, Image, Text, ScaleFade } from '@chakra-ui/react';
 import logoSmall from '../../../icons/logo-small.png';
 
-const MobileMenuFooter = ({ isOpen = true }) => {
+const MobileMenuFooter = ({ isOpen }) => {
   return (
     <Box
       as="footer"

@@ -36,7 +36,7 @@ function MobileSideMenu({ isOpen, onOpen, onClose }) {
           </DrawerBody>
 
           <DrawerFooter p={0}>
-            <MobileMenuFooter />
+            <MobileMenuFooter isOpen={true} />
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
