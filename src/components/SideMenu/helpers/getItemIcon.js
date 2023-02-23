@@ -22,6 +22,9 @@ const getItemIcon = itemName => {
     case 'Products & Pricing':
       return <ProductsIcon boxSize={BOX_SIZE} />;
 
+    case 'Products':
+      return <ProductsIcon boxSize={BOX_SIZE} />;
+
     case 'Reports':
       return <ReportsIcon boxSize={BOX_SIZE} />;
 

@@ -1,5 +1,5 @@
 import { Text, Flex, Image, Container } from '@chakra-ui/react';
-import logoSmall from '../icons/logo-small.png';
+import logoSmall from '../../icons/logo-small.png';
 
 const DesktopHeader = () => {
   return (

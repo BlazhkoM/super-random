@@ -1,9 +1,9 @@
 import React from 'react';
-import MobileSideMenu from './MobileSideMenu/MobileSideMenu';
+import MobileSideMenu from '../MobileSideMenu/MobileSideMenu';
 import { IconButton, Flex, Image, useDisclosure } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
-import logoFull from '../icons/logo-inverse-full-black.png';
-import { FilterIcon, SearchIcon } from '../icons/menuIcons';
+import logoFull from '../../icons/logo-inverse-full-black.png';
+import { FilterIcon, SearchIcon } from '../../icons/menuIcons';
 import { AddIcon } from '@chakra-ui/icons';
 
 const Main = () => {
