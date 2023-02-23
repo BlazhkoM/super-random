@@ -13,6 +13,7 @@ const theme = extendTheme({
   colors: {
     primary: {
       green: '#51D9B0',
+      greenLight: '#E4FCF5',
       blue: '#33A8E2',
       navy: '#152144',
       white: '#FFF',
@@ -21,6 +22,9 @@ const theme = extendTheme({
     },
     greyButton: {
       500: 'rgba(152, 165, 183, 0.3)',
+    },
+    greenButton: {
+      500: '#E4FCF5',
     },
     grey: {
       10: '#F8F9FB',
