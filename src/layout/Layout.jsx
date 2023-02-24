@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { Box, Grid, GridItem, Show, Hide } from '@chakra-ui/react';
+import { Box, Grid, GridItem, Show, Hide, Container } from '@chakra-ui/react';
 import MobileHeader from '../components/layoutComponents/MobileHeader';
 import SideMenu from '../components/SideMenu/SideMenu';
 import DesktopHeader from '../components/layoutComponents/DesktopHeader';
 import MobileFooter from '../components/layoutComponents/MobileFooter';
+import Dashboard from '../pages/Dashboard';
 
 const Layout = () => {
   return (
@@ -63,7 +64,11 @@ const Layout = () => {
           </GridItem>
         </Show>
 
-        <GridItem pl="2" bg="green.300" area={'main'}></GridItem>
+        <GridItem area={'main'}>
+          <Container maxW="container.xl">
+            <Dashboard />
+          </Container>
+        </GridItem>
 
         <Show below="md">
           <GridItem area={'footer'}>

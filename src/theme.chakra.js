@@ -14,17 +14,23 @@ const theme = extendTheme({
     primary: {
       green: '#51D9B0',
       greenLight: '#E4FCF5',
+      greenDark: '#368a70',
       blue: '#33A8E2',
       navy: '#152144',
       white: '#FFF',
       yellow: '#FFD54F',
       red: '#EA6363',
     },
+    whiteButton: {
+      500: '#FFF',
+      700: '#98A5B7',
+    },
     greyButton: {
       500: 'rgba(152, 165, 183, 0.3)',
     },
     greenButton: {
       500: '#E4FCF5',
+      700: '#9effe3',
     },
     grey: {
       10: '#F8F9FB',
@@ -40,6 +46,31 @@ const theme = extendTheme({
     lg: '978px',
     xl: '1278px',
     '2xl': '1536px',
+  },
+  components: {
+    Button: {
+      variants: {
+        brandGreen: {
+          bg: 'primary.green',
+          color: 'white',
+          borderRadius: '3xl',
+          width: '116px',
+          _hover: {
+            bg: 'primary.greenDark',
+          },
+        },
+
+        brandWhite: {
+          bg: 'white',
+          color: 'primary.navy',
+          borderRadius: '3xl',
+          width: '116px',
+          _hover: {
+            bg: 'grey.20',
+          },
+        },
+      },
+    },
   },
 });
 

@@ -6,7 +6,7 @@ import logoFull from '../../icons/logo-inverse-full-black.png';
 import { FilterIcon, SearchIcon } from '../../icons/menuIcons';
 import { AddIcon } from '@chakra-ui/icons';
 
-const Main = () => {
+const MobileHeader = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -54,4 +54,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default MobileHeader;
