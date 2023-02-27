@@ -14,16 +14,18 @@ const Dashboard = () => {
         <Divider />
       </Flex>
 
-      <Flex wrap="wrap">
-        <Flex flexShrink="0" mr="12">
-          <Calendar />
+      <Flex direction="column" gap="8">
+        <Flex wrap="wrap" justify="space-between">
+          <Flex flexShrink="0" mr="12">
+            <Calendar />
+          </Flex>
+          <StatPanel />
         </Flex>
-        <StatPanel />
-      </Flex>
 
-      <Flex gap="5">
-        <ChartPanel />
-        <ProgressPanel />
+        <Flex gap="5" alignSelf="flex-end">
+          <ChartPanel />
+          <ProgressPanel />
+        </Flex>
       </Flex>
     </Box>
   );

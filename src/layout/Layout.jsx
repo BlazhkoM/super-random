@@ -65,7 +65,7 @@ const Layout = () => {
         </Show>
 
         <GridItem area={'main'}>
-          <Container maxW="container.xl">
+          <Container maxW="container.2xl">
             <Dashboard />
           </Container>
         </GridItem>

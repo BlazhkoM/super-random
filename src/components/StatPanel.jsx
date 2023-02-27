@@ -1,6 +1,7 @@
 import { Flex, Divider, Heading, Text, Button } from '@chakra-ui/react';
+import AnimatedNumber from './AnimatedNumber';
 
-const Indicator = ({ header, body }) => (
+const Indicator = ({ header, body, unit = null }) => (
   <Flex
     direction="column"
     justify="space-between"
@@ -18,8 +19,11 @@ const Indicator = ({ header, body }) => (
     >
       {header}
     </Heading>
+
     <Text color="primary.navy" lineHeight="1" fontWeight="700" fontSize="40px">
+      {unit && unit.position === 'left' && unit.value}
       {body}
+      {unit && unit.position === 'right' && unit.value}
     </Text>
   </Flex>
 );
@@ -35,12 +39,16 @@ const StatPanel = () => {
       py="5"
       px="8"
     >
-      <Indicator header="NEW ORDERS" body="60" />
+      <Indicator header="NEW ORDERS" body={<AnimatedNumber num={60} />} />
 
       <Divider orientation="vertical" />
 
       <Flex w="100%">
-        <Indicator header="SALES" body="$12,400" />
+        <Indicator
+          header="SALES"
+          body={<AnimatedNumber num={12400} />}
+          unit={{ position: 'left', value: '$' }}
+        />
 
         <Flex
           gap="3"

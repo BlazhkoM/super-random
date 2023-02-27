@@ -6,7 +6,14 @@ import progressData from '../shared/progressData';
 
 const ProgressPanel = () => {
   return (
-    <Box shadow="lg" borderRadius="lg" w="432px" h="419px" p="8" pr="4">
+    <Box
+      boxShadow="0 0 8px rgba(0,0,0, 0.1)"
+      borderRadius="lg"
+      w="432px"
+      h="419px"
+      p="8"
+      pr="4"
+    >
       <Flex justify="space-between" align="center" mb="10">
         <Header fontSize="xs">TOP PERFORMING CUSTOMERS</Header>
 

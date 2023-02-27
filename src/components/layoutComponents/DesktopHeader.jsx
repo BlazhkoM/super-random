@@ -3,7 +3,7 @@ import logoSmall from '../../icons/logo-small.png';
 
 const DesktopHeader = () => {
   return (
-    <Container maxW="container.xl" h="100%">
+    <Container maxW="container.2xl" h="100%">
       <Flex justifyContent="flex-end" align="center" h="100%">
         <Flex align="center" gap="4">
           <Text

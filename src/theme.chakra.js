@@ -40,6 +40,15 @@ const theme = extendTheme({
       80: '#5B6578',
     },
   },
+  sizes: {
+    container: {
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1440px',
+    },
+  },
   breakpoints: {
     sm: '320px',
     md: '768px',

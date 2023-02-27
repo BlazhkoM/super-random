@@ -5,7 +5,13 @@ import LineChart from '../components/lineChart.jsx/LineChart';
 
 const ChartPanel = () => {
   return (
-    <Box p="8" shadow="lg" borderRadius="lg" w="432px" h="419px">
+    <Box
+      p="8"
+      boxShadow="0 0 8px rgba(0,0,0, 0.1)"
+      borderRadius="lg"
+      w="432px"
+      h="419px"
+    >
       <Flex justify="space-between" align="center" mb="10">
         <Header fontSize="xs">SALES</Header>
 

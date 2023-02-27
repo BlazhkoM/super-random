@@ -78,7 +78,7 @@ const LineChart = () => (
   >
     <defs>
       <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="5%" stopColor="rgba(31, 142, 241, 0.1)" />
+        <stop offset="5%" stopColor="rgba(31, 142, 241, 0.07)" />
         <stop offset="95%" stopColor="rgba(31, 142, 241, 0)" />
       </linearGradient>
     </defs>
