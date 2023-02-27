@@ -86,17 +86,33 @@ const Calendar = ({ change }) => {
         <Flex gap="2">
           <IconButton
             aria-label="Next week"
-            icon={<ChevronLeftIcon color="primary.green" boxSize={8} />}
+            icon={
+              <ChevronLeftIcon
+                color="primary.green"
+                boxSize={8}
+                _groupHover={{ color: '#fff' }}
+              />
+            }
             onClick={prevWeekHandle}
             isRound
             colorScheme="greenButton"
+            role="group"
+            _hover={{ background: 'primary.green' }}
           />
           <IconButton
             aria-label="Previous week"
-            icon={<ChevronRightIcon color="primary.green" boxSize={8} />}
+            icon={
+              <ChevronRightIcon
+                color="primary.green"
+                boxSize={8}
+                _groupHover={{ color: '#fff' }}
+              />
+            }
             onClick={nextWeekHandle}
             isRound
             colorScheme="greenButton"
+            role="group"
+            _hover={{ background: 'primary.green' }}
           />
         </Flex>
       </Flex>
