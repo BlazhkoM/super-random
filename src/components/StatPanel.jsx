@@ -28,7 +28,7 @@ const Indicator = ({ header, body, unit = null }) => (
   </Flex>
 );
 
-const StatPanel = () => {
+const StatPanel = ({ orders, sales }) => {
   return (
     <Flex
       borderRadius="xl"
@@ -39,14 +39,14 @@ const StatPanel = () => {
       py="5"
       px="8"
     >
-      <Indicator header="NEW ORDERS" body={<AnimatedNumber num={60} />} />
+      <Indicator header="NEW ORDERS" body={<AnimatedNumber num={orders} />} />
 
       <Divider orientation="vertical" />
 
       <Flex w="100%">
         <Indicator
           header="SALES"
-          body={<AnimatedNumber num={12400} />}
+          body={<AnimatedNumber num={sales} />}
           unit={{ position: 'left', value: '$' }}
         />
 

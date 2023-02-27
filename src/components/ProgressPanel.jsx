@@ -4,7 +4,7 @@ import Header from './Header';
 import ProgressItem from './ProgressItem';
 import progressData from '../shared/progressData';
 
-const ProgressPanel = () => {
+const ProgressPanel = ({ data }) => {
   return (
     <Box
       boxShadow="0 0 8px rgba(0,0,0, 0.1)"
@@ -33,7 +33,7 @@ const ProgressPanel = () => {
       </Flex>
 
       <Flex gap="8" direction="column">
-        {progressData.map(({ id, subTitle, title, value }, index) => (
+        {data.map(({ id, subTitle, title, value }, index) => (
           <ProgressItem
             key={id}
             headingText={title}

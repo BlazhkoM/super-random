@@ -54,7 +54,7 @@ const theme = extendTheme({
     md: '768px',
     lg: '978px',
     xl: '1278px',
-    '2xl': '1536px',
+    '2xl': '1440px',
   },
   components: {
     Button: {

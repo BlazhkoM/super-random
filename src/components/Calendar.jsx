@@ -11,7 +11,7 @@ import {
 import { Flex, Box, Text, IconButton, Divider, chakra } from '@chakra-ui/react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 
-const Calendar = () => {
+const Calendar = ({ change }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [currentWeek, setCurrentWeek] = useState([]);
   const [header, setHeader] = useState('');
@@ -44,6 +44,7 @@ const Calendar = () => {
 
       weekDays.push(
         <Flex
+          key={current}
           direction="column"
           gap="2"
           align="center"
@@ -61,10 +62,12 @@ const Calendar = () => {
 
   const nextWeekHandle = () => {
     setCurrentDate(current => nextMonday(current));
+    change();
   };
 
   const prevWeekHandle = () => {
     setCurrentDate(current => previousMonday(current));
+    change();
   };
 
   return (

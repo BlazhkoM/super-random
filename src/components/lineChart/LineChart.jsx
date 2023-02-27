@@ -69,11 +69,11 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null;
 };
 
-const LineChart = () => (
+const LineChart = ({ data: chartData }) => (
   <AreaChart
     width={400}
     height={300}
-    data={data}
+    data={chartData}
     margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
   >
     <defs>

@@ -1,9 +1,9 @@
 import { Button, Box, Flex } from '@chakra-ui/react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import Header from '../components/Header';
-import LineChart from '../components/lineChart.jsx/LineChart';
+import LineChart from './lineChart/LineChart';
 
-const ChartPanel = () => {
+const ChartPanel = ({ data }) => {
   return (
     <Box
       p="8"
@@ -27,7 +27,7 @@ const ChartPanel = () => {
           </Button>
         </Box>
       </Flex>
-      <LineChart />
+      <LineChart data={data} />
     </Box>
   );
 };
