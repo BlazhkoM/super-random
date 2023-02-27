@@ -1,7 +1,8 @@
 import { Box, Divider, Flex, Heading } from '@chakra-ui/react';
 import Calendar from '../components/Calendar';
-import LineChart from '../components/lineChart.jsx/LineChart';
 import StatPanel from '../components/StatPanel';
+import ChartPanel from '../components/ChartPanel';
+import ProgressPanel from '../components/ProgressPanel';
 
 const Dashboard = () => {
   return (
@@ -20,10 +21,10 @@ const Dashboard = () => {
         <StatPanel />
       </Flex>
 
-      <Box p="8" shadow="lg" borderRadius="lg" w="432px" h="419px">
-        <Flex mb="10">Title</Flex>
-        <LineChart />
-      </Box>
+      <Flex gap="5">
+        <ChartPanel />
+        <ProgressPanel />
+      </Flex>
     </Box>
   );
 };

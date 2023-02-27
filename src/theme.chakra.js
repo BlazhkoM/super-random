@@ -60,6 +60,17 @@ const theme = extendTheme({
           },
         },
 
+        brandLightGreen: {
+          bg: 'primary.greenLight',
+          color: 'primary.green',
+          borderRadius: '3xl',
+          width: '100%',
+          _hover: {
+            bg: 'primary.green',
+            color: 'white',
+          },
+        },
+
         brandWhite: {
           bg: 'white',
           color: 'primary.navy',
