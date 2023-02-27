@@ -9,7 +9,7 @@ import {
 } from '@chakra-ui/react';
 import getItemIcon from '../helpers/getItemIcon';
 
-const MenuItem = ({ text, path, isSmall, icon, ...rest }) => {
+const MenuItem = ({ text, path, isSmall, icon, active = false, ...rest }) => {
   const [isLowerThan978] = useMediaQuery('(max-width: 978px)');
 
   return (
@@ -25,11 +25,22 @@ const MenuItem = ({ text, path, isSmall, icon, ...rest }) => {
         py={4}
         pl={!isSmall ? 12 : 0}
         w="100%"
-        _hover={{
-          bg: 'linear-gradient(270deg, rgba(255, 255, 255, 0) -39.2%, rgba(81, 217, 176, 0.1) 100%)',
-          color: '#fff',
-          borderRadius: null,
-        }}
+        _hover={
+          !active
+            ? {
+                bg: 'linear-gradient(270deg, rgba(255, 255, 255, 0) -39.2%, rgba(81, 217, 176, 0.1) 100%)',
+                color: '#fff',
+                borderRadius: null,
+              }
+            : null
+        }
+        bg={
+          active
+            ? 'linear-gradient(270deg, rgba(255, 255, 255, 0) -39.2%, rgba(81, 217, 176, 0.1) 100%)'
+            : ''
+        }
+        color={active ? '#fff' : 'inherit'}
+        cursor={active ? 'default' : 'pointer'}
         style={{ textDecoration: 'none' }}
         display="flex"
         justifyContent={isSmall ? 'center' : 'flex-start'}
@@ -43,7 +54,7 @@ const MenuItem = ({ text, path, isSmall, icon, ...rest }) => {
           h="100%"
           w="1"
           bg="primary.green"
-          display="none"
+          display={active ? 'block' : 'none'}
           _groupHover={{ display: 'block' }}
         />
         <Flex gap="3.5" alignItems="center" {...rest}>
