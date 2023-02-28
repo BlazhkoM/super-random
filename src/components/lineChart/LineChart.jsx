@@ -17,7 +17,6 @@ const CustomTooltip = ({ active, payload, label }) => {
         bg="primary.navy"
         w="70px"
         h="32px"
-        // borderRadius="lg"
         justify="center"
         align="center"
         border="none"
@@ -51,23 +50,15 @@ const LineChart = ({ data: chartData }) => {
         axisLine={false}
         tickLine={false}
         tick={{ fill: '#98A5B7', fontSize: '12px' }}
-        // padding={{ left: -14, right: 14 }}
       />
       <YAxis
         axisLine={false}
         tickCount={7}
         tickFormatter={v => '$ ' + v}
         tickLine={false}
-        // domain={["auto", "dataMax + 200"]}
-        // allowDataOverflow={true}
-        // interval="preserveStart"
         tick={{ fill: '#98A5B7', fontSize: '12px' }}
       />
-      <CartesianGrid
-        horizontal={false}
-        style={{ stroke: '#98A5B7' }}
-        // horizontalPoints={[]}
-      />
+      <CartesianGrid horizontal={false} style={{ stroke: '#98A5B7' }} />
       <Tooltip content={<CustomTooltip />} />
       <Area
         type="monotone"

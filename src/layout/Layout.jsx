@@ -4,9 +4,8 @@ import MobileHeader from '../components/layoutComponents/MobileHeader';
 import SideMenu from '../components/SideMenu/SideMenu';
 import DesktopHeader from '../components/layoutComponents/DesktopHeader';
 import MobileFooter from '../components/layoutComponents/MobileFooter';
-import Dashboard from '../pages/Dashboard';
 
-const Layout = () => {
+const Layout = ({ children }) => {
   return (
     <Box textAlign="center">
       <Grid
@@ -65,9 +64,7 @@ const Layout = () => {
         </Show>
 
         <GridItem area={'main'}>
-          <Container maxW="container.2xl">
-            <Dashboard />
-          </Container>
+          <Container maxW="container.2xl">{children}</Container>
         </GridItem>
 
         <Show below="md">

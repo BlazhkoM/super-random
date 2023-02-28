@@ -1,6 +1,6 @@
 import { Box, VStack } from '@chakra-ui/react';
 import MenuItem from './MenuItem';
-import menuItemsData from '../../../menuItemsData';
+import menuItemsData from '../../../shared/menuItemsData';
 
 const SideMenuLinkList = ({ small = false }) => {
   return (
