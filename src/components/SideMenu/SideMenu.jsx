@@ -18,7 +18,7 @@ const SideMenu = () => {
   return (
     <Box
       py={isOpen ? 5 : 6}
-      w={[isOpen ? '244px' : '94px', null, null, null, '264px']}
+      w={[isOpen ? '244px' : '94px', null, null, null, null, '264px']}
       h="100vh"
       top={0}
       left={0}

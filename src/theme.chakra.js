@@ -53,21 +53,23 @@ const theme = extendTheme({
     sm: '320px',
     md: '768px',
     lg: '978px',
+    '2lg': '1144px',
     xl: '1278px',
     '2xl': '1440px',
+    '3xl': '1638px',
   },
   components: {
     Button: {
       variants: {
-        brandGreen: {
+        brandGreen: ({ w }) => ({
           bg: 'primary.green',
           color: 'white',
           borderRadius: '3xl',
-          width: '116px',
+          width: w ? w : '116px',
           _hover: {
             bg: 'primary.greenDark',
           },
-        },
+        }),
 
         brandLightGreen: {
           bg: 'primary.greenLight',

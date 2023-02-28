@@ -1,13 +1,25 @@
-import { Flex, Divider, Heading, Text, Button } from '@chakra-ui/react';
+import {
+  Flex,
+  Divider,
+  Heading,
+  Text,
+  Button,
+  useMediaQuery,
+} from '@chakra-ui/react';
 import AnimatedNumber from './AnimatedNumber';
 
-const Indicator = ({ header, body, unit = null }) => (
+const Indicator = ({
+  header,
+  body,
+  unit = null,
+  orientation = 'horizontal',
+}) => (
   <Flex
     direction="column"
     justify="space-between"
     align="flex-start"
     gap="9px"
-    h="100%"
+    h={orientation === 'vertical' ? 'auto' : '100%'}
   >
     <Heading
       as="h5"
@@ -28,39 +40,87 @@ const Indicator = ({ header, body, unit = null }) => (
   </Flex>
 );
 
-const StatPanel = ({ orders, sales }) => {
+const ButtonsGroup = ({ isVertical, direction }) => (
+  <Flex
+    gap="3"
+    direction={direction}
+    justify="flex-end"
+    align={isVertical ? 'center' : 'flex-end'}
+    wrap="nowrap"
+    w="100%"
+  >
+    <Button variant="brandWhite" w={isVertical ? '148px' : null}>
+      View
+    </Button>
+    <Button variant="brandGreen" w={isVertical ? '148px' : null}>
+      Export
+    </Button>
+  </Flex>
+);
+
+const StatPanel = ({
+  orders,
+  sales,
+  mobileView = false,
+  orientation = 'horizontal',
+}) => {
+  const [isLargerThan1144] = useMediaQuery('(min-width: 1144px)');
+  const isVertical = orientation === 'vertical';
+  const direction = isVertical ? 'column' : 'row';
+
   return (
     <Flex
       borderRadius="xl"
       bg="primary.greenLight"
-      gap="12"
-      flexGrow="1"
-      maxW="888px"
+      maxW={mobileView ? '345px' : '888px'}
+      w={isVertical ? '189px' : 'auto'}
+      h={mobileView ? 'auto' : isVertical ? '100vh' : '116px'}
       py="5"
-      px="8"
+      gap={isLargerThan1144 ? '12' : '6'}
+      px={isVertical || mobileView ? '4' : '8'}
+      flexGrow="1"
+      direction="column"
     >
-      <Indicator header="NEW ORDERS" body={<AnimatedNumber num={orders} />} />
-
-      <Divider orientation="vertical" />
-
-      <Flex w="100%">
+      <Flex
+        flexGrow="1"
+        direction={direction}
+        gap={isLargerThan1144 ? '12' : '6'}
+      >
         <Indicator
-          header="SALES"
-          body={<AnimatedNumber num={sales} />}
-          unit={{ position: 'left', value: '$' }}
+          header="NEW ORDERS"
+          orientation={orientation}
+          body={<AnimatedNumber num={orders} />}
+        />
+
+        <Divider
+          orientation={isVertical ? 'horizontal' : 'vertical'}
+          borderColor="primary.green"
         />
 
         <Flex
-          gap="3"
-          justify="flex-end"
-          align="flex-end"
-          wrap="nowrap"
           w="100%"
+          direction={mobileView ? 'column' : direction}
+          gap={isVertical ? '10' : 0}
         >
-          <Button variant="brandWhite">View</Button>
-          <Button variant="brandGreen">Export</Button>
+          <Indicator
+            header="SALES"
+            orientation={orientation}
+            body={<AnimatedNumber num={sales} />}
+            unit={{ position: 'left', value: '$' }}
+          />
+
+          {!mobileView && (
+            <ButtonsGroup direction={direction} isVertical={isVertical} />
+          )}
         </Flex>
       </Flex>
+      {mobileView && (
+        <ButtonsGroup
+          direction={direction}
+          mobileView
+          isVertical={isVertical}
+        />
+      )}
     </Flex>
   );
 };

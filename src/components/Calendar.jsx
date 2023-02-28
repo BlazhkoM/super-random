@@ -51,6 +51,7 @@ const Calendar = ({ change }) => {
           className="day weekNames"
           color={isToday ? 'primary.navy' : 'grey.60'}
           fontWeight={isToday ? '700' : '400'}
+          role="button"
         >
           <chakra.span>{format(current, 'EEEEEE')}</chakra.span>
           <chakra.span>{format(current, 'd')}</chakra.span>
@@ -71,7 +72,7 @@ const Calendar = ({ change }) => {
   };
 
   return (
-    <Box w="404px">
+    <Box w={{ base: '345px', '2lg': '404px' }}>
       <Flex
         as="header"
         align="center"

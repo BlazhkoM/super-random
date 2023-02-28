@@ -1,12 +1,18 @@
 import { useState, useEffect } from 'react';
-import { Box, Divider, Flex, Heading } from '@chakra-ui/react';
+import { Box, Divider, Flex, Heading, useMediaQuery } from '@chakra-ui/react';
 import Calendar from '../components/Calendar';
 import StatPanel from '../components/StatPanel';
 import ChartPanel from '../components/ChartPanel';
 import ProgressPanel from '../components/ProgressPanel';
 import demoData from '../shared/demoData';
+import CalendarInfo from '../components/CalendarInfo';
 
 const Dashboard = () => {
+  const [isLargerThan768, isLowerThan768, isLowerThan978] = useMediaQuery([
+    '(min-width: 768px)',
+    '(max-width: 768px)',
+    '(max-width: 978px)',
+  ]);
   const [mockData, setMockData] = useState(null);
 
   useEffect(() => {
@@ -22,28 +28,84 @@ const Dashboard = () => {
   if (!mockData) return null;
 
   return (
-    <Box w="100%" pt="66px">
-      <Flex as="header" align="center" w="100%" gap="9" mb="16">
-        <Heading color="grey.60" fontSize="14px" fontWeight="700">
-          DASHBOARD
-        </Heading>
-        <Divider />
-      </Flex>
+    <Box w="100%" pt="66px" pb="8">
+      {!isLowerThan768 && (
+        <Flex
+          as="header"
+          align="center"
+          flexGrow="1"
+          w="100%"
+          gap="9"
+          mb="16"
+          pl={{ base: 0, lg: '60px', '3xl': 0 }}
+        >
+          <Heading color="grey.60" fontSize="14px" fontWeight="700">
+            DASHBOARD
+          </Heading>
+          <Divider />
+        </Flex>
+      )}
 
-      <Flex direction="column" gap="8">
-        <Flex wrap="wrap" justify="space-between">
-          <Flex flexShrink="0" mr="12">
-            <Calendar change={changeWeekHandle} />
-          </Flex>
+      <Flex
+        direction={isLowerThan768 ? 'column' : 'row'}
+        alignItems={isLowerThan768 ? 'center' : 'flex-start'}
+      >
+        {isLargerThan768 && isLowerThan978 && (
           <StatPanel
             orders={mockData.statData.orders}
             sales={mockData.statData.sales}
+            orientation="vertical"
           />
-        </Flex>
+        )}
 
-        <Flex gap="5" alignSelf="flex-end">
-          <ChartPanel data={mockData.chartData} />
-          <ProgressPanel data={mockData.progressData} />
+        <Flex direction="column" grow="1" gap="8" pl={{ md: '60px', '3xl': 0 }}>
+          <Flex
+            direction={{ base: 'column', '3xl': 'row' }}
+            gap={{ base: '8', '3xl': '12' }}
+            justify="space-between"
+            bg={{
+              base: 'transparent',
+              lg: 'rgba(152, 165, 183, 0.15)',
+              '3xl': 'transparent',
+            }}
+            maxW={{ md: '711px', '2lg': '888px', '3xl': '100%' }}
+            p={{ base: 0, lg: 7, '3xl': 0 }}
+            borderRadius="lg"
+          >
+            <Flex
+              flexShrink="0"
+              direction={isLowerThan978 ? 'column' : 'row'}
+              justify="space-between"
+              gap={isLowerThan978 ? '4' : 0}
+            >
+              <CalendarInfo />
+              <Calendar change={changeWeekHandle} />
+            </Flex>
+            {!isLargerThan768 ||
+              (!isLowerThan978 && (
+                <StatPanel
+                  orders={mockData.statData.orders}
+                  sales={mockData.statData.sales}
+                />
+              ))}
+
+            {isLowerThan768 && (
+              <StatPanel
+                orders={mockData.statData.orders}
+                sales={mockData.statData.sales}
+                mobileView
+              />
+            )}
+          </Flex>
+
+          <Flex
+            gap="5"
+            direction={isLowerThan978 ? 'column' : 'row'}
+            alignSelf={{ base: 'flex-start', '3xl': 'flex-end' }}
+          >
+            <ChartPanel data={mockData.chartData} />
+            <ProgressPanel data={mockData.progressData} />
+          </Flex>
         </Flex>
       </Flex>
     </Box>

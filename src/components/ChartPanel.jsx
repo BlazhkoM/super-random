@@ -1,15 +1,16 @@
-import { Button, Box, Flex } from '@chakra-ui/react';
+import { Button, Box, Flex, useMediaQuery } from '@chakra-ui/react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import Header from '../components/Header';
 import LineChart from './lineChart/LineChart';
 
 const ChartPanel = ({ data }) => {
+  const [isLargerThan1144] = useMediaQuery('(min-width: 1144px)');
   return (
     <Box
-      p="8"
+      p={isLargerThan1144 ? '8' : '4'}
       boxShadow="0 0 8px rgba(0,0,0, 0.1)"
       borderRadius="lg"
-      w="432px"
+      w={isLargerThan1144 ? '432px' : '345px'}
       h="419px"
     >
       <Flex justify="space-between" align="center" mb="10">

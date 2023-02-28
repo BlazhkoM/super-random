@@ -1,17 +1,17 @@
-import { Button, Box, Flex } from '@chakra-ui/react';
+import { Button, Box, Flex, useMediaQuery } from '@chakra-ui/react';
 import { ChevronDownIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import Header from './Header';
 import ProgressItem from './ProgressItem';
-import progressData from '../shared/progressData';
 
 const ProgressPanel = ({ data }) => {
+  const [isLargerThan1144] = useMediaQuery('(min-width: 1144px)');
   return (
     <Box
       boxShadow="0 0 8px rgba(0,0,0, 0.1)"
       borderRadius="lg"
-      w="432px"
+      w={isLargerThan1144 ? '432px' : '345px'}
       h="419px"
-      p="8"
+      p={isLargerThan1144 ? '8' : '4'}
       pr="4"
     >
       <Flex justify="space-between" align="center" mb="10">
