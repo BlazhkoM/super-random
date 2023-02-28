@@ -1,3 +1,15 @@
+## Dashboard project
+
+Implemented using following techs/libs:
+
+- React
+- Chakra UI
+- Rechart
+- Framer motion
+- Date fns
+
+*******
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
