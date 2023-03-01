@@ -13,7 +13,6 @@ const SideMenuLinkList = ({ small = false }) => {
             text={text}
             path={path}
             icon={icon}
-            active={text === 'Dashboard'}
           />
         ))}
       </VStack>

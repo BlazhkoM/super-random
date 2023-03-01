@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Box, Grid, GridItem, Show, Hide, Container } from '@chakra-ui/react';
+import { Outlet } from 'react-router-dom';
+import { Box, Grid, GridItem, Show, Container } from '@chakra-ui/react';
 import MobileHeader from '../components/layoutComponents/MobileHeader';
 import SideMenu from '../components/SideMenu/SideMenu';
 import DesktopHeader from '../components/layoutComponents/DesktopHeader';
 import MobileFooter from '../components/layoutComponents/MobileFooter';
-
-const Layout = ({ children }) => {
+const Layout = () => {
   return (
     <Box textAlign="center">
       <Grid
@@ -44,9 +44,9 @@ const Layout = ({ children }) => {
           area={'header'}
           display={{ base: 'block', md: 'none', lg: 'block' }}
         >
-          <Hide above="md">
+          <Show below="md">
             <MobileHeader />
-          </Hide>
+          </Show>
           <Show above="lg">
             <DesktopHeader />
           </Show>
@@ -64,7 +64,9 @@ const Layout = ({ children }) => {
         </Show>
 
         <GridItem area={'main'}>
-          <Container maxW="container.2xl">{children}</Container>
+          <Container maxW="container.2xl">
+            <Outlet />
+          </Container>
         </GridItem>
 
         <Show below="md">

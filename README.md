@@ -3,12 +3,13 @@
 Implemented using following techs/libs:
 
 - React
+- React router (v.6)
 - Chakra UI
 - Rechart
 - Framer motion
 - Date fns
 
-*******
+---
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
